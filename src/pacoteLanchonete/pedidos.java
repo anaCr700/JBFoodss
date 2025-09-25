@@ -5,6 +5,8 @@ public class pedidos {
     int quantidade;
     String observacoes, formaPagamento, outro;
     double valorTotal;
+    private pedidoEspecial objPedidoEspecial;
+    private cliente objCliente;
     
     public pedidos(){
         
