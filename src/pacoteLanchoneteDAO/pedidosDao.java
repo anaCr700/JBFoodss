@@ -78,13 +78,10 @@ public class pedidosDao {
     }
 
     public List<cliente> getExibirC(cliente c) {
-
         try {
-
-            List<cliente> lista = new ArrayList<>();
+           List<cliente> lista = new ArrayList<>();
 
             for (int i = 0; i < 2; i++) {
-
                 c.getNome();
                 c.getTelefone();
                 c.getEndereco();
@@ -104,13 +101,10 @@ public class pedidosDao {
     }
 
     public List<pedidos> getExibirP(pedidos p) {
-
         try {
-
             List<pedidos> listaP = new ArrayList<>();
 
             for (int i = 0; i < 1; i++) {
-
                 p.getQuantidade();
                 p.getObservacoes();
                 p.getValorTotal();

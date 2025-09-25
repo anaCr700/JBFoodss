@@ -24,9 +24,6 @@ public class Lanchonete_JBFoods {
 
         resp.nextLine();
 
-        /*System.out.println("Deseja fazer um pedido? S/N");
-        opc1= resp.nextLine();*/
-        
         System.out.println("nome: ");
         nome = resp.nextLine();
 
