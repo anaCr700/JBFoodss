@@ -6,9 +6,9 @@ import pacoteLanchonete.cardapio;
 import pacoteLanchonete.cliente;
 import pacoteLanchonete.pedidos;
 
-public class pedidosDao {
+public class cadastroPedidos {
 
-    public pedidosDao() {
+    public cadastroPedidos() {
     }
 
     public void cadastrarCliente(cliente c) {

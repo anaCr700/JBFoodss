@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.Scanner;
 import pacoteLanchonete.cliente;
 import pacoteLanchonete.pedidos;
-import pacoteLanchoneteDAO.pedidosDao;
+import pacoteLanchoneteDAO.cadastroPedidos;
 
 public class Lanchonete_JBFoods {
 
     public static void main(String[] args) {
         Scanner resp = new Scanner(System.in);
-        pedidosDao pDao = new pedidosDao(); //adicionar pedidos
+        cadastroPedidos pDao = new cadastroPedidos(); //adicionar pedidos
         pedidos p = new pedidos(); //armazenar esses cadasstros pDao
 
         cliente clientes = new cliente(); //adicionar cliente 
