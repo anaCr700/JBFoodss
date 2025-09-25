@@ -1,26 +1,29 @@
 package lanchonete_jbfoodsMain;
 
-import java.util.List;
 import java.util.Scanner;
 import pacoteLanchonete.cliente;
+import pacoteLanchonete.pedidoEspecial;
 import pacoteLanchonete.pedidos;
 import pacoteLanchoneteDAO.cadastroPedidos;
+import pacoteLanchoneteDAO.exibicao;
 
 public class Lanchonete_JBFoods {
 
     public static void main(String[] args) {
         Scanner resp = new Scanner(System.in);
-        cadastroPedidos pDao = new cadastroPedidos(); //adicionar pedidos
-        pedidos p = new pedidos(); //armazenar esses cadasstros pDao
 
-        cliente clientes = new cliente(); //adicionar cliente 
+        cadastroPedidos cPedido = new cadastroPedidos(); //armazenar esses cadasstros pDao
+        exibicao ex = new exibicao();
+        pedidos p = new pedidos(); //add pedidos
+        pedidoEspecial pes = new pedidoEspecial();
+        cliente clientes = new cliente(); //add cliente 
 
         String nome, endereco, tel, lancheEsp, nomeEsp, endEsp, obs, formaPag, lanche, bebida, selecionar, opc, recado, opc1;
         int quantidade;
         double valorTotal;
 
         System.out.println("Veja nosso cardapio: ");
-        pDao.getCardapio(); //mostrar cardapio
+        ex.getCardapio(); //mostrar cardapio
 
         resp.nextLine();
 
@@ -37,7 +40,7 @@ public class Lanchonete_JBFoods {
         clientes.setEndereco(endereco);
         clientes.setTelefone(tel);
 
-        pDao.cadastrarCliente(clientes); //cadastrar cliente
+        cPedido.cadastrarCliente(clientes); //cadastrar cliente
 
         System.out.println("selecionar: Lanche ou Bebida");
         selecionar = resp.next();
@@ -65,7 +68,7 @@ public class Lanchonete_JBFoods {
             p.setValorTotal(valorTotal);
             p.setQuantidade(quantidade);
 
-            pDao.cadastrarPedido(p);
+            cPedido.cadastrarPedido(p);
 
         } else if (selecionar.equalsIgnoreCase("bebida")) { //bebida
             System.out.println("selecine a bebida: ");
@@ -90,8 +93,7 @@ public class Lanchonete_JBFoods {
             p.setFormaPagamento(formaPag);
             p.setValorTotal(valorTotal);
             p.setQuantidade(quantidade);*/
-
-            pDao.cadastrarPedido(p);
+            cPedido.cadastrarPedido(p);
         }
 
         System.out.println("Fazer Pedido (F) ou Finalizar Pedido(P)");
@@ -110,20 +112,18 @@ public class Lanchonete_JBFoods {
             System.out.println("recado: ");
             recado = resp.nextLine();
 
-            p.setNome_recado(nomeEsp);
-            p.setEnd_recado(endEsp);
-            p.setLancheEsp(lancheEsp);
-            p.setEnd_recado(recado);
-            
-            pDao.cadastrarPedido(p);
-            pDao.cadastrarPedidoEsp(p);
+            pes.setNome_Esp(nomeEsp);
+            pes.setEnd_Esp(endEsp);
+            pes.setLanche_Esp(lancheEsp);
+            pes.setRecado(recado);
 
-            
+            cPedido.cadastrarPedido(p);
+            cPedido.cadastrarPedidoEsp(pes);
 
         } else if (opc.equalsIgnoreCase("f")) {
-            pDao.getExibirC(clientes);
-            pDao.getExibirP(p);
-            pDao.getExibirEsp();
+            ex.getCardapio();
+            ex.getExibirP(p);
+            ex.getExibirEsp();
         }
 
         /*clientes.setEndereco("rua");
@@ -134,8 +134,6 @@ public class Lanchonete_JBFoods {
 
         p.setObservacoes("");
         p.setFormaPagamento("pix");*/
-        pDao.cadastrarPedido(p); //cadastrar pedido: 
-
-        pDao.getExibirP(p);
+        
     }
 }
