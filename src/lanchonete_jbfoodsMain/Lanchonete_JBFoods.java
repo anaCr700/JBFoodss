@@ -18,22 +18,22 @@ public class Lanchonete_JBFoods {
         pedidoEspecial pes = new pedidoEspecial();
         cliente clientes = new cliente(); //add cliente 
 
-        String nome, endereco, tel, lancheEsp, nomeEsp, endEsp, obs, formaPag, lanche, bebida, selecionar, opc, recado, opc1;
+        String nome, endereco, tel, lancheEsp, nomeEsp, endEsp, obs, formaPag, lanche, bebida, selecionar, opc, recado, opc1, opc2;
         int quantidade;
         double valorTotal;
 
         System.out.println("Veja nosso cardapio: ");
         ex.getCardapio(); //mostrar cardapio
 
-        resp.nextLine();
+        System.out.println("\n");
 
-        System.out.println("nome: ");
+        System.out.print("nome: ");
         nome = resp.nextLine();
 
-        System.out.println("Telefone: ");
+        System.out.print("Telefone: ");
         tel = resp.nextLine();
 
-        System.out.println("endereco: ");
+        System.out.print("endereco: ");
         endereco = resp.nextLine();
 
         clientes.setNome(nome);
@@ -47,59 +47,69 @@ public class Lanchonete_JBFoods {
 
         if (selecionar.equalsIgnoreCase("lanche")) {
 
-            System.out.println("selecine o lanche: ");
+            System.out.print("selecine o lanche: ");
             lanche = resp.nextLine();
 
-            System.out.println("quantidade: ");
+            resp.nextLine();
+
+            System.out.print("quantidade: ");
             quantidade = resp.nextInt();
 
             valorTotal = quantidade * 9.00;
 
             System.out.println("valor total: " + valorTotal);
+            resp.nextLine();
 
-            System.out.println("Obs: ");
+            System.out.print("Obs: ");
             obs = resp.nextLine();
 
-            System.out.println("forma de pagamento: ");
+            System.out.print("forma de pagamento: ");
             formaPag = resp.nextLine();
 
             p.setObservacoes(obs);
             p.setFormaPagamento(formaPag);
             p.setValorTotal(valorTotal);
             p.setQuantidade(quantidade);
+            p.setLanche(lanche);
 
             cPedido.cadastrarPedido(p);
 
-        } else if (selecionar.equalsIgnoreCase("bebida")) { //bebida
-            System.out.println("selecine a bebida: ");
-            lanche = resp.nextLine();
+        }
 
-            System.out.println("quantidade: ");
+        System.out.println("Deseja pedir uma bebida de acompanhamento? S/N");
+        opc2 = resp.nextLine();
+
+        if (selecionar.equalsIgnoreCase("bebida") || opc2.equalsIgnoreCase("s")) { //bebida
+            System.out.print("selecine a bebida: ");
+            bebida = resp.nextLine();
+
+            System.out.print("quantidade: ");
             quantidade = resp.nextInt();
 
             valorTotal = quantidade * 9.00;
 
             System.out.println("valor total: " + valorTotal);
+            resp.nextLine();
 
-            p.setValorTotal(valorTotal);
-
-            System.out.println("Obs: ");
+            System.out.print("Obs: ");
             obs = resp.nextLine();
 
-            System.out.println("forma de pagamento: ");
+            System.out.print("forma de pagamento: ");
             formaPag = resp.nextLine();
 
-            /*p.setObservacoes(obs);
+            p.setObservacoes(obs);
             p.setFormaPagamento(formaPag);
             p.setValorTotal(valorTotal);
-            p.setQuantidade(quantidade);*/
+            p.setQuantidade(quantidade);
+            p.setBebida(bebida);
+
             cPedido.cadastrarPedido(p);
         }
 
-        System.out.println("Fazer Pedido (F) ou Finalizar Pedido(P)");
+        System.out.print("Fazer Pedido especial (F) ou Finalizar Pedido(P)");
         opc = resp.nextLine();
 
-        if (opc.equalsIgnoreCase("p")) {
+        if (opc.equalsIgnoreCase("f")) {
             System.out.println("nome da pesssoa especial: ");
             nomeEsp = resp.nextLine();
 
@@ -120,8 +130,9 @@ public class Lanchonete_JBFoods {
             cPedido.cadastrarPedido(p);
             cPedido.cadastrarPedidoEsp(pes);
 
-        } else if (opc.equalsIgnoreCase("f")) {
+        } else if (opc.equalsIgnoreCase("p")) {
             ex.getCardapio();
+            ex.getExibirC(clientes);
             ex.getExibirP(p);
             ex.getExibirEsp();
         }
@@ -134,6 +145,5 @@ public class Lanchonete_JBFoods {
 
         p.setObservacoes("");
         p.setFormaPagamento("pix");*/
-        
     }
 }

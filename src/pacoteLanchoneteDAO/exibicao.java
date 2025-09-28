@@ -68,12 +68,13 @@ public class exibicao {
                 p.getObservacoes();
                 p.getValorTotal();
                 p.getFormaPagamento();
-
+                p.getLanche();
+                p.getBebida();
                 listaP.add(p);
 
                 System.out.println("=============PEDIDO: ===========");
                 System.out.println("Pedido: ");
-                System.out.println("quantidade: " + p.getQuantidade() + "\n " + " valor total: " + p.getValorTotal() + "\n observação: " + p.getObservacoes() + "\n forma de pagamento: " + p.getFormaPagamento());
+                System.out.println("quantidade: " + p.getQuantidade() + "\n " + " valor total: " + p.getValorTotal() + "\n observação: " + p.getObservacoes() + "\n forma de pagamento: " + p.getFormaPagamento() + "\n lanche: " + p.getLanche() + "\n bebida: " + p.getBebida());
                 System.out.println("=================================");
 
                 return listaP;
@@ -105,7 +106,7 @@ public class exibicao {
 
         } catch (Exception e) {
             System.out.println("erro ao exibir o cardapio: " + e.getMessage());
-            
+
         }
         return null;
     }

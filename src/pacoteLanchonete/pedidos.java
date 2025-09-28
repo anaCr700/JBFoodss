@@ -1,22 +1,23 @@
-
 package pacoteLanchonete;
 
 public class pedidos {
+
     int quantidade;
-    String observacoes, formaPagamento, outro;
+    String observacoes, formaPagamento, lanche, bebida;
     double valorTotal;
     private pedidoEspecial objPedidoEspecial;
     private cliente objCliente;
-    
-    public pedidos(){
-        
+
+    public pedidos() {
+
     }
 
-    public pedidos(int quantidade, String observacoes, String formaPagamento, String outro, double valorTotal) {
+    public pedidos(int quantidade, String observacoes, String formaPagamento, double valorTotal, String lanche, String bebida) {
         this.quantidade = quantidade;
         this.observacoes = observacoes;
-        this.outro = outro;
         this.valorTotal = valorTotal;
+        this.bebida = bebida;
+        this.lanche = lanche;
     }
 
     public int getQuantidade() {
@@ -43,14 +44,6 @@ public class pedidos {
         this.formaPagamento = formaPagamento;
     }
 
-    public String getOutro() {
-        return outro;
-    }
-
-    public void setOutro(String outro) {
-        this.outro = outro;
-    }
-
     public double getValorTotal() {
         return valorTotal;
     }
@@ -58,6 +51,27 @@ public class pedidos {
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
-    
-    
+
+    public String getLanche() {
+        return lanche;
+    }
+
+    public void setLanche(String lanche) {
+        this.lanche = lanche;
+    }
+
+    public String getBebida() {
+        return bebida;
+    }
+
+    public void setBebida(String bebida) {
+        this.bebida = bebida;
+    }
+
+    public void calcular(double valor) {
+        this.valorTotal = this.quantidade * valor;
+        
+        System.out.println("VALOR TOTAL: "+ this.valorTotal);
+    }
+   
 }

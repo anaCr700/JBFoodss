@@ -38,7 +38,6 @@ public class cadastroPedidos {
 
     public void cadastrarPedidoEsp(pedidoEspecial pes) {
         try {
-
             pes.getNome_Esp();
             pes.getEnd_Esp();
             pes.getLanche_Esp();
@@ -50,4 +49,5 @@ public class cadastroPedidos {
             System.out.println("erro ao casdatrar os dados da pessoa especial: " + e.getMessage());
         }
     }
+    
 }
