@@ -20,7 +20,7 @@ public class Lanchonete_JBFoods {
 
         String nome, endereco, tel, lancheEsp, nomeEsp, endEsp, obs, formaPag, lanche, bebida, selecionar, opc, recado, opc1, opc2;
         int quantidade;
-        double valorTotal;
+        double valorTotal, valor=9.00;
 
         System.out.println("Veja nosso cardapio: ");
         ex.getCardapio(); //mostrar cardapio
@@ -55,9 +55,9 @@ public class Lanchonete_JBFoods {
             System.out.print("quantidade: ");
             quantidade = resp.nextInt();
 
-            valorTotal = quantidade * 9.00;
+            p.setQuantidade(quantidade);
+            p.calcular(valor);
 
-            System.out.println("valor total: " + valorTotal);
             resp.nextLine();
 
             System.out.print("Obs: ");
@@ -68,7 +68,6 @@ public class Lanchonete_JBFoods {
 
             p.setObservacoes(obs);
             p.setFormaPagamento(formaPag);
-            p.setValorTotal(valorTotal);
             p.setQuantidade(quantidade);
             p.setLanche(lanche);
 
@@ -86,9 +85,9 @@ public class Lanchonete_JBFoods {
             System.out.print("quantidade: ");
             quantidade = resp.nextInt();
 
-            valorTotal = quantidade * 9.00;
+            p.setQuantidade(quantidade);
+            p.calcular(valor);
 
-            System.out.println("valor total: " + valorTotal);
             resp.nextLine();
 
             System.out.print("Obs: ");
@@ -99,7 +98,6 @@ public class Lanchonete_JBFoods {
 
             p.setObservacoes(obs);
             p.setFormaPagamento(formaPag);
-            p.setValorTotal(valorTotal);
             p.setQuantidade(quantidade);
             p.setBebida(bebida);
 
@@ -134,6 +132,7 @@ public class Lanchonete_JBFoods {
             ex.getCardapio();
             ex.getExibirC(clientes);
             ex.getExibirP(p);
+            p.calcular(valor);//exibir valor
             ex.getExibirEsp();
         }
 
