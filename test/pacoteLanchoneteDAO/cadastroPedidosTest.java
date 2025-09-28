@@ -57,4 +57,21 @@ public class cadastroPedidosTest {
         assertNotNull(ex);
     }
     
+    @Test
+    public void testCadastrarPedido() {
+        String lanche = "x-burguer";
+        String bebida = "laranja";
+        String obs = "";
+        String formaPagamento= "dinheiro";
+        int quantidade = 3;
+        double valorTotal;
+        
+        p.setLanche(lanche);
+        p.setBebida(bebida);
+        p.setFormaPagamento(formaPagamento);
+        p.setQuantidade(quantidade);
+
+        cPe.cadastrarPedido(p);
+        ex.getExibirP(p);
+    }
 }
